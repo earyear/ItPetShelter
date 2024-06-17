@@ -16,4 +16,9 @@ public class IPSController {
         return "layout/base";
     }
 
+    @GetMapping("/location")
+    public String loaction() {
+        return "page/location";
+    }
+
 }
