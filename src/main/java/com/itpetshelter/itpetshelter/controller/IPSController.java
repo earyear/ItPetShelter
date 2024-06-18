@@ -21,4 +21,10 @@ public class IPSController {
         return "page/location";
     }
 
+    @GetMapping("/volunteer")
+    public String volunteer() {
+        return "page/volunteer";
+    }
+
+
 }
