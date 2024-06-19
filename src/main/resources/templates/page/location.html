@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>보호소위치</title>
+
+    <style>
+        .lo_list {
+            width: 50%;
+            display: block;
+            float: left;
+
+                text-align: center;
+        }
+
+        .lo_list button{
+            display: block; /
+            color: #1e2125;
+            margin-left: 80px;
+            font-size: 30px;
+            font-weight: 500;
+            margin-top: 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            font-size: 22px;
+            margin-left: 80px;
+            width: 420px;
+
+        }
+        .lo_list button:hover {
+            background-color: #e0e0e0;
+        }
+
+
+    </style>
+
+</head>
+
+
+
+
+<body>
+
+<div layout:fragment="content" style="width:100%;height:100%;padding:3%;">
+
+
+        <div class="lo_list">
+            <button id="shelter1">보호소1</button>
+            <button id="shelter2">보호소2</button>
+            <button id="shelter3">보호소3</button>
+            <button id="shelter4">보호소4</button>
+        </div>
+
+
+
+    <!-- * 카카오맵 - 지도퍼가기 -->
+    <!-- 1. 지도 노드 -->
+    <div id="daumRoughmapContainer1718613760948" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+    <!--
+        2. 설치 스크립트
+        * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+    -->
+    <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"  style="float:right;"></script>
+
+    <!-- 3. 실행 스크립트 -->
+    <script charset="UTF-8">
+        new daum.roughmap.Lander({
+            "timestamp" : "1718613760948",
+            "key" : "2jpdv",
+            "mapWidth" : "640",
+            "mapHeight" : "360"
+        }).render();
+    </script>
+
+    <script>
+        // JavaScript를 사용하여 마우스 호버 이벤트를 추가합니다.
+        const buttons = document.querySelectorAll('.lo_list button');
+
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.backgroundColor = '#ccc'; // 마우스 호버 시 배경색 변경
+            });
+
+            button.addEventListener('mouseout', function() {
+                this.style.backgroundColor = '#f0f0f0'; // 마우스 벗어날 때 원래 배경색으로 변경
+            });
+        });
+    </script>
+
+</div>
+
+
+</body>
+
+
+
+</html>

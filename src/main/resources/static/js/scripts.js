@@ -27,3 +27,22 @@ window.addEventListener('DOMContentLoaded', () => {
         scrollPos = currentTop;
     });
 })
+document.addEventListener('DOMContentLoaded', function () {
+    const dogsDropdown = document.getElementById('dogsDropdown');
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+    dogsDropdown.addEventListener('mouseover', function () {
+        dropdownMenus.forEach(menu => {
+            if (menu !== dogsDropdown.nextElementSibling) {
+                menu.classList.remove('show');
+            }
+        });
+        this.nextElementSibling.classList.toggle('show');
+    });
+
+    dropdownMenus.forEach(menu => {
+        menu.addEventListener('mouseleave', function () {
+            this.classList.remove('show');
+        });
+    });
+});
