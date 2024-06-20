@@ -62,11 +62,12 @@
 
     <form >
         <label for="name">아이디</label>
-        <input type="text" id="name" name="name" required  placeholder="아이디를 입력해주세요.">
+        <input type="text" id="name" name="name" required  placeholder="봉사신청자 아이디를 입력해주세요.">
 
 
         <label for="shelter">보호소</label>
         <select id="shelter" name="shelter" required>
+
             <option value="">보호소를 선택해주세요</option>
             <option value="shelter1">보호소1</option>
             <option value="shelter2">보호소2</option>
@@ -78,8 +79,8 @@
         <label class="form-label">신청일자</label>
             <input type='date' id='currentDate'/>
 
-        <label for="message">추가 메시지</label>
-        <textarea id="message" name="message" placeholder="추가 참고사항을 입력해주세요."></textarea>
+        <label class="form-label">시간선택</label>
+        <input type='time' id='currentTime'/>
 
         <input type="submit" value="신청 제출" style="width: 50%">
     </form>

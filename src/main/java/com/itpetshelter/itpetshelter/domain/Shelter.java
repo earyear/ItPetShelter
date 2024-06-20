@@ -14,7 +14,11 @@ public class Shelter extends BaseEntity{
     @Id
 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long Sno;
+    private int Sno;
+
+    @Column(length = 15, nullable = false)
+    private int Mno;
+
 
     @Column(length = 15, nullable = false)
     private String Sname;

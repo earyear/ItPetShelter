@@ -55,18 +55,13 @@
         </div>
 
 
-
-    <!-- * 카카오맵 - 지도퍼가기 -->
-    <!-- 1. 지도 노드 -->
+    <!-- 지도표시 예시 -->
     <div id="daumRoughmapContainer1718613760948" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
-    <!--
-        2. 설치 스크립트
-        * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
-    -->
+
     <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"  style="float:right;"></script>
 
-    <!-- 3. 실행 스크립트 -->
+    <!-- 지도 실행 스크립트 -->
     <script charset="UTF-8">
         new daum.roughmap.Lander({
             "timestamp" : "1718613760948",
@@ -77,16 +72,14 @@
     </script>
 
     <script>
-        // JavaScript를 사용하여 마우스 호버 이벤트를 추가합니다.
+<!--마우스 이벤트 스크립트 -->
         const buttons = document.querySelectorAll('.lo_list button');
-
         buttons.forEach(button => {
             button.addEventListener('mouseover', function() {
-                this.style.backgroundColor = '#ccc'; // 마우스 호버 시 배경색 변경
+                this.style.backgroundColor = '#ccc';
             });
-
             button.addEventListener('mouseout', function() {
-                this.style.backgroundColor = '#f0f0f0'; // 마우스 벗어날 때 원래 배경색으로 변경
+                this.style.backgroundColor = '#f0f0f0';
             });
         });
     </script>
