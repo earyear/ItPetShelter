@@ -9,14 +9,22 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Shelter {
+
+public class Shelter extends BaseEntity{
     @Id
+
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int Sno;
 
-    @OneToOne
-    @JoinColumn(name = "Mno")
-    private Manager manager;
+    @Column(length = 15, nullable = false)
+    private int Mno;
 
+
+    @Column(length = 15, nullable = false)
     private String Sname;
+
+    @Column(length = 50, nullable = false)
     private String Slocate;
+
+
 }
