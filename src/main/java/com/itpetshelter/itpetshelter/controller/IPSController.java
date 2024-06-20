@@ -16,22 +16,6 @@ public class IPSController {
     public String base() {
         return "layout/base";
     }
-    
-    // 보호소 위치
-    @GetMapping("/location")
-    public String loaction() {
-        return "page/location";
-    }
-
-//    봉사활동 신청폼
-    @GetMapping("/volunteer")
-    public String volunteer() {
-        return "page/volunteer";
-    }
-//    봉사활동 신청서 처리
-
-
-
 
 
 

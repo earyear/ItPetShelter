@@ -1,5 +1,6 @@
 package com.itpetshelter.itpetshelter.domain;
 
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,26 +11,28 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name = "Volunteer", indexes = {
-        @Index(name = "idx_Volunteer_Shelter_Sno", columnList = "Shelter_Sno")
-})
 @Entity
+
 public class Volunteer extends BaseEntity{
     @Id
-    private int Vno;
 
-    @OneToOne
-    @JoinColumn(name = "Sno")
-    private Shelter shelter;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long Vno;
 
-    @OneToOne
-    @JoinColumn(name = "Mno")
-    private Manager manager;
+    @Column(length = 20,nullable = false)
+    private int Mno;
 
-    @OneToOne
-    @JoinColumn(name = "Uid")
-    private User user;
+    @Column(length = 20,nullable = false)
+    private String Uid;
 
+    @Column(name = "date", updatable = false)
     private LocalDateTime Date;
+
+    @Column(name = "time", updatable = false)
     private LocalDateTime Time;
+
+
+
+
+
 }
