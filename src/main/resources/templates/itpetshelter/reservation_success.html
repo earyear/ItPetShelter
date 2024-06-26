@@ -16,13 +16,14 @@
 <div layout:fragment="content">
 <div class="container-success">
     <h2>예약이 성공적으로 생성되었습니다!</h2><br/>
-    <p>예약 날짜: <span th:text="${reservation.rdate}"></span></p>
-    <p>예약 시간: <span th:text="${reservation.rtime}"></span></p>
-    <p>동물: <span th:text="${reservation.animal.aname}"></span></p>
-    <p>보호소: <span th:text="${reservation.shelter.sname}"></span></p>
+    <p>예약 날짜: <span th:text="${Rdate}"></span></p>
+    <p>예약 시간: <span th:text="${Rtime}"></span></p>
+    <p>동물: <span th:text="${Aname}"></span></p>
+    <p>보호소: <span th:text="${Sname}"></span></p>
     <!-- 추가적인 예약 정보 표시 -->
     <p>추가 안내 사항이나 문의 사항은 연락처로 문의해주세요.</p>
     <p><a href="/itpetshelter/index">홈으로 돌아가기</a></p>
+
 </div>
 </div>
 </body>

@@ -1,6 +1,5 @@
 package com.itpetshelter.itpetshelter.dto;
 
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,14 +19,13 @@ public class ReservationDTO {
 
     private Long Mno;
 
-    private Long Ano;
+    private String Aname;
 
     private String Cid;
 
-    private Long Sno;
+    private String Sname;
 
-    private LocalDateTime Rdate;
-    private LocalDate Rdate2;
+    private LocalDate Rdate;
     private String Rtime;
 
     private LocalDateTime regDate;

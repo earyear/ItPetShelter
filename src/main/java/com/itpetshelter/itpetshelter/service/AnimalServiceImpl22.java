@@ -6,7 +6,6 @@ import com.itpetshelter.itpetshelter.domain.Type;
 import com.itpetshelter.itpetshelter.dto.Animal2DTO;
 import com.itpetshelter.itpetshelter.repository.AnimalRepository;
 import com.itpetshelter.itpetshelter.repository.ShelterRepository;
-//import com.itpetshelter.itpetshelter.repository.ShelterRepository22;
 import com.itpetshelter.itpetshelter.repository.TypeRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;

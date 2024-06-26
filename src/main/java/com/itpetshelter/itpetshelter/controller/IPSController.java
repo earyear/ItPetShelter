@@ -1,26 +1,21 @@
 package com.itpetshelter.itpetshelter.controller;
 
-import com.itpetshelter.itpetshelter.domain.Animal;
 import com.itpetshelter.itpetshelter.domain.Reservation;
-import com.itpetshelter.itpetshelter.domain.Shelter;
-import com.itpetshelter.itpetshelter.dto.AnimalDTO;
 import com.itpetshelter.itpetshelter.dto.ReservationDTO;
 import com.itpetshelter.itpetshelter.repository.AnimalRepository;
-import com.itpetshelter.itpetshelter.repository.ReservationRepository;
 import com.itpetshelter.itpetshelter.repository.ShelterRepository;
-import com.itpetshelter.itpetshelter.service.AnimalService;
 import com.itpetshelter.itpetshelter.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/itpetshelter")
@@ -53,20 +48,19 @@ public class IPSController {
 
         redirectAttributes.addAttribute("Rdate", reservation.getRdate());
         redirectAttributes.addAttribute("Rtime", reservation.getRtime());
-        redirectAttributes.addAttribute("ano", reservation.getAnimal().getAno());
-        redirectAttributes.addAttribute("sno", reservation.getShelter().getSno());
+        redirectAttributes.addAttribute("Aname", reservation.getAnimal().getAname());
+        redirectAttributes.addAttribute("Sname", reservation.getShelter().getSname());
 
-        return "itpetshelter/reservation_success";
+        return "redirect:/itpetshelter/reservation_success";
     }
 
     @GetMapping("/reservation_success")
-    public String showReservationSuccess(@RequestParam("Rdate") LocalDateTime Rdate, @RequestParam("Rtime") String Rtime,
-                                         @RequestParam("ano") Long ano, @RequestParam("sno") Long sno, Model model) {
+    public void showReservationSuccess(@RequestParam("Rdate") LocalDate Rdate, @RequestParam("Rtime") String Rtime,
+                                         @RequestParam("Aname") String  Aname, @RequestParam("Sname") String Sname, Model model) {
         model.addAttribute("Rdate", Rdate);
         model.addAttribute("Rtime", Rtime);
-        model.addAttribute("ano", ano);
-        model.addAttribute("sno", sno);
-        return "itpetshelter/reservation_success";
+        model.addAttribute("Aname", Aname);
+        model.addAttribute("Sname", Sname);
     }
 
     @GetMapping("/shelter")
