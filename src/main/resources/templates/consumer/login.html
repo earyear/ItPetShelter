@@ -52,18 +52,20 @@
                     <a href="#" onclick="hidden_login_and_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
                     <h2>회원 로그인</h2>
                     <input type="text" name="username" class="form-control" placeholder="USER ID">
-                    <input type="text" name="password" class="form-control" placeholder="PASSWORD">
+                    <input type="password" name="password" class="form-control" placeholder="PASSWORD">
                     <button type="submit" class="btn_login" >LOGIN</button>
                 </div>
                 </form>
 
+                <form id="registerForm2" action="/consumer/login" method="post">
                 <div class="cont_form_sign_up">
                     <a href="#" onclick="hidden_login_and_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
                     <h2>관리자 로그인</h2>
-                    <input type="text" placeholder="Email" />
-                    <input type="text" placeholder="User" />
+                    <input type="text" name="username" class="form-control" placeholder="MANAGER ID">
+                    <input type="password" name="password" class="form-control" placeholder="PASSWORD">
                     <button type="submit" class="btn_sign_up" onclick="change_to_sign_up()">LOGIN</button>
                 </div>
+                </form>
 
             </div>
 

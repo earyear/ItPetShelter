@@ -19,6 +19,21 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
+//시큐리티 설정이 되면, 자동으로 로그인 로직처리를 해줘요.
+// config
+// http.formLogin(
+//        formLogin -> formLogin.loginPage("/consumer/login").permitAll()
+//        );
+// 등록 된 로그인 페이지에서.
+// post , 로그인 페이지.
+// 로그인 폼에서, 아이디 이름: username  , 패스워드 : password,
+// /consumer/login , post 로 보내면,
+// 로직 처리를
+// 여기서 해요.
+// consumer -> /consumer/login
+// manager -> /consumer/login
+
 @Log4j2
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

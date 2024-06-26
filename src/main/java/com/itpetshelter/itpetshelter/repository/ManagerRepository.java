@@ -1,7 +1,6 @@
 package com.itpetshelter.itpetshelter.repository;
 
 import com.itpetshelter.itpetshelter.domain.Manager;
-
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
