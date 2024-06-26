@@ -65,4 +65,36 @@ public class Animal2Controller {
         return "redirect:/itpetshelter/animalList22";
     }
 
+//    저기로 보내는 게 + animal2DTO 맞나?
+@PostMapping("/animalDetailDelete")
+public String deleteAnimal(@RequestParam Long ano) {
+    animalService.delete(ano);
+    return "redirect:/itpetshelter/animalList22";
+}
+
+    @GetMapping("/animalUpdate")
+    public String showUpdateForm(@RequestParam("ano") Long ano, Model model) {
+        Animal2DTO animalDTO = animalService.read(ano);
+        model.addAttribute("animal2DTO", animalDTO);
+        return "itpetshelter/animalUpdate"; // animalUpdate.html 템플릿으로 이동
+    }
+
+    @PostMapping("/animalDetailUpdate")
+    public String update(@Valid Animal2DTO animalDTO, BindingResult bindingResult, Model model) {
+
+        // 유효성 체크
+        if (bindingResult.hasErrors()) {
+            log.info("오류 발생: " + bindingResult.getAllErrors());
+            model.addAttribute("animal2DTO", animalDTO);
+            return "itpetshelter/animalUpdate";
+        }
+
+        // 동물 정보 업데이트
+        animalService.update(animalDTO);
+
+        // 수정 완료 후 동물 상세 페이지로 리다이렉트
+        return "redirect:/itpetshelter/animalDetail?ano=" + animalDTO.getAno();
+    }
+
+
 }

@@ -138,6 +138,22 @@ public class AnimalServiceImpl22 implements AnimalService22 {
                 .collect(Collectors.toList());
     }
 
+
+
+    @Override
+    public void delete(Long ano) {
+        animalRepository.deleteById(ano);
+    }
+
+    @Override
+    public void update(Animal2DTO animal2DTO) {
+        // DTO를 Entity로 변환
+        Animal animal = dtoToEntity(animal2DTO);
+
+        // AnimalRepository를 통해 저장된 Entity를 업데이트
+        animalRepository.save(animal);
+    }
+
 }
 
 

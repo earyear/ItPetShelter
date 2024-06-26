@@ -9,6 +9,7 @@ import java.util.Set;
 
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -20,11 +21,11 @@ public class Animal {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long Ano;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Tno")
     private Type type;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Sno")
     private Shelter shelter;
 

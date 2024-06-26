@@ -17,4 +17,6 @@ public interface AnimalService22 {
     Animal dtoToEntity(Animal2DTO animal2DTO);
     Long insert(Animal2DTO animal2DTO);
 
+    void delete(Long ano);
+    void update(Animal2DTO animal2DTO);
 }
