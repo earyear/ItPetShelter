@@ -23,7 +23,7 @@ public class ManagerRepositoryTests {
     @Test
     public void insertConsumerTest() {
         // 샘플로 100명의 더미 디비 넣기. 병렬처리
-        IntStream.rangeClosed(1,100).forEach(i ->{
+        IntStream.rangeClosed(1,5).forEach(i ->{
             Manager manager = Manager.builder()
                     .Mid("lsy"+i)
                     // 주의사항, 멤버 넣을 때, 패스워드 평문 안됨, 암호화 필수.

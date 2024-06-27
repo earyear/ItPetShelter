@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -15,10 +16,13 @@ import java.time.LocalDateTime;
 
 public class VolunteerDTO {
     private Long Vno;
-    private Long Sno;
+    private String Sname;
     private Long Mno;
     private String Cid;
-    private LocalDateTime VDate;
-    private LocalDateTime VTime;
 
+    private LocalDate Vdate;
+    private String Vtime;
+
+    private LocalDateTime regDate;
+    private LocalDateTime modDate;
 }

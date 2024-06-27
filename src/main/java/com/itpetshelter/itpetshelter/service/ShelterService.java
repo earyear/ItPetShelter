@@ -12,6 +12,6 @@ public interface ShelterService {
     List<ShelterDTO> getAllshelters();
     ShelterDTO entityToDTO(Shelter shelter);
 
-    List<VolunteerDTO> getAllvolunteer();
-    VolunteerDTO entityToDTO(Volunteer volunteer);
+    List<VolunteerDTO> getAllvolunteers();
+    VolunteerDTO entityToDTO2(Volunteer volunteer);
 }

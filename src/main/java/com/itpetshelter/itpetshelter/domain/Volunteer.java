@@ -3,6 +3,7 @@ package com.itpetshelter.itpetshelter.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
@@ -30,8 +31,8 @@ public class Volunteer extends BaseEntity{
     @JoinColumn(name = "Cid")
     private Consumer consumer;
 
-    private LocalDateTime VDate;
-    private LocalDateTime VTime;
+    private LocalDate Vdate;
+    private String Vtime;
 
 
 }

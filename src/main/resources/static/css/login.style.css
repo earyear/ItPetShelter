@@ -31,11 +31,13 @@
             #b0bec5 100%
     );
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfd8dc', endColorstr='#b0bec5',GradientType=1 );
+    flex-direction: column;
 }
 
 .cont_centrar {
     display: flex;
     align-self: center;
+    margin-top: 380px;
     width: 100%;
 }
 

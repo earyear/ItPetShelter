@@ -21,7 +21,7 @@ public class ShelterServiceImpl implements ShelterService{
     @Override
     public List<ShelterDTO> getAllshelters() {
 
-         return shelterRepository.findAll().stream()
+        return shelterRepository.findAll().stream()
                 .map(this::entityToDTO)
                 .collect(Collectors.toList());
     }
@@ -31,7 +31,6 @@ public class ShelterServiceImpl implements ShelterService{
         ShelterDTO shelterDTO = ShelterDTO.builder()
                 .Slocate(shelter.getSlocate())
                 .Sno(shelter.getSno())
-//                .Mno(shelter.getManager().getMno())
                 .Sname(shelter.getSname())
                 .build();
 
@@ -42,22 +41,21 @@ public class ShelterServiceImpl implements ShelterService{
     private VolunteerRepository volunteerRepository;
 
     @Override
-    public List<VolunteerDTO> getAllvolunteer() {
+    public List<VolunteerDTO> getAllvolunteers() {
 
         return volunteerRepository.findAll().stream()
-                .map(this::entityToDTO)
+                .map(this::entityToDTO2)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public VolunteerDTO entityToDTO(Volunteer volunteer) {
+    public VolunteerDTO entityToDTO2(Volunteer volunteer) {
         VolunteerDTO volunteerDTO = VolunteerDTO.builder()
                 .Vno(volunteer.getVno())
-                .Sno(volunteer.getShelter().getSno())
-//                .Mno(volunteer.getManager().getMno())
+                .Sname(volunteer.getShelter().getSname())
                 .Cid(volunteer.getConsumer().getCid())
-                .VDate(volunteer.getVDate())
-                .VTime(volunteer.getVTime())
+                .Vdate(volunteer.getVdate())
+                .Vtime(volunteer.getVtime())
                 .build();
 
         return volunteerDTO;

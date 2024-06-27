@@ -97,13 +97,13 @@
 
   <h2>자원봉사 신청 양식</h2>
 
-  <form action="/page/volunteer" method="get">
+  <form action="/page/volunteer" method="post">
     <div class="select_date">
-      <label class="form-label">신청일자</label>
-      <input type='date' id='currentDate' style="width: 50%" >
+      <label for="vdate">신청일자</label>
+      <input type="date" id="vdate" name="Vdate" style="width: 50%" >
 
       <label for="vtime">예약 시간:</label>
-      <select id="vtime">
+      <select id="vtime" name="Vtime">
         <option value="10:00">10:00</option>
         <option value="11:00">11:00</option>
         <option value="12:00">12:00</option>
@@ -114,11 +114,12 @@
         <option value="17:00">17:00</option>
       </select>
     </div>
-    <label for="name">신청자 아이디:</label>
-    <input type="text" id="name" name="name" readonly th:each="volunteer : ${volunteerlist}" th:value="${volunteer.cid}" >
+
+    <!--    <label for="name">신청자 아이디:</label>-->
+    <!--    <input type="text" id="name" name="name" readonly th:each="volunteer : ${volunteerlist}" th:value="${volunteer.cid}" >-->
 
     <label for="shelter">보호소:</label>
-    <select id="shelter" name="shelter">
+    <select id="shelter" name="Sname">
       <option th:each="shelter : ${shelterlist}" th:value="${shelter.sname}" >[[${shelter.sname}]]</option>
     </select>
 

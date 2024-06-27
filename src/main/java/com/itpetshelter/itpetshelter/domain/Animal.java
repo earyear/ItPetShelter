@@ -22,15 +22,18 @@ public class Animal {
     private Long Ano;
 
     // 연관 관계 설정 메서드 추가
-    @Setter
+//    @Setter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Tno")
     private Type type;
 
-    @Setter
+//    @Setter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Sno")
     private Shelter shelter;
+
+
+
 
     @ManyToOne
     @JoinColumn(name = "Mno")

@@ -18,7 +18,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
     List<Animal> findByTypeKeyword(@Param("keyword") String Keyword);
 
 //    Optional<Animal> findByAname(String Aname);
-@Query("select m from Animal m where m.Aname = :Aname")
+@Query("select a from Animal a where a.Aname = :Aname")
     Optional<Animal> findByAname(String Aname);
 
 

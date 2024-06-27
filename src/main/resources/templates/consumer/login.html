@@ -10,8 +10,16 @@
 </head>
 <body>
 <div class="cotn_principal">
-    <h1><a href="/itpetshelter/index">ItPetShelter</a></h1>
+    <a href="/itpetshelter/index">ItPetShelter</a>
+    <th:block th:if="${param.logout != null}">
+        <h2>Logout........</h2>
+    </th:block>
+
+    <th:block th:if="${param.error != null }">
+        <h2>접근 권한이 없습니다. 다시 로그인해주세요</h2>
+    </th:block>
     <div class="cont_centrar">
+
 
         <div class="cont_login">
             <div class="cont_info_log_sign_up">
