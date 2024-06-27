@@ -11,9 +11,9 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "roleSet")
 @Entity
-public class Manager {
+public class Manager extends BaseEntity {
     @Id
 //    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private String Mid;

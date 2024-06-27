@@ -43,7 +43,7 @@ public class ManagerRepositoryTests {
 
     @Test
     public void testRead() {
-        Optional<Manager> result = managerRepository.getWithRoles("lsy");
+        Optional<Manager> result = managerRepository.getWithRoles("lsy1");
         Manager manager = result.orElseThrow();
 
         log.info("ManagerRepositoryTests testRead, manager:  "+ manager);

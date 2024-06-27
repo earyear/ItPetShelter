@@ -4,4 +4,5 @@ package com.itpetshelter.itpetshelter.domain;
 
 public enum MemberRole {
     USER,ADMIN
+
 }
