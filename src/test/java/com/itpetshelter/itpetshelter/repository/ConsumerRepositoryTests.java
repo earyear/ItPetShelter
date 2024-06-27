@@ -45,7 +45,7 @@ public class ConsumerRepositoryTests {
 
     @Test
     public void testRead() {
-        Optional<Consumer> result = consumerRepository.getWithRoles("이상용100");
+        Optional<Consumer> result = consumerRepository.getWithRoles("test");
         Consumer consumer = result.orElseThrow();
 
         log.info("ConsumerRepositoryTests testRead, consumer:  "+ consumer);
