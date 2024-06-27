@@ -181,14 +181,6 @@
 <!--자바스크립트 추가하는 영역-->
 <script layout:fragment="javascript" th:inline="javascript">
 
-    // 시큐리티 객체 확인 해보기.
-    const auth = [[${#authentication}]]
-    console.log("auth authentication : " + auth)
-    // 로그인한 유저의 정보가 들어가 있음.
-    // 예) lsy , pw :123456,
-    // auth2 -> 유정명이 포함이 되어있다.
-    const auth2 = [[${#authentication.principal}]]
-    console.log("auth2 authentication.principal  : " + auth2)
 
     //글쓰기 후, 작성된 게시글 번호를 출력하기, 경고창으로
     // 모달창으로 변경해보기.
