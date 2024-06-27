@@ -9,6 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+
 @SpringBootTest
 @Log4j2
 public class AnimalRepositoryTest {
@@ -29,17 +34,21 @@ public class AnimalRepositoryTest {
     public void testInsert() {
         //실제 디비 각자 데이터에 따라서 다름.
         // 현재 bno = 900
-//        Long tno = 1L;
+
+        Long tno = 4L;
 
         Type type = Type.builder()
-                .type("이상태에서?2222")
+                .type("야옹이")
+
                 .build();
 
         type = typeRepository.save(type);
 
         Shelter shelter = Shelter.builder()
-                .slocate("test")
-                .sname("test")
+
+                .slocate("test4")
+                .sname("test4")
+
                 .build();
 
 
@@ -56,6 +65,7 @@ public class AnimalRepositoryTest {
 
 
         Animal animal = Animal.builder()
+
                 .Agender(true)
                 .Acontent("test")
                 .type(type)
@@ -64,7 +74,9 @@ public class AnimalRepositoryTest {
                 .Aage(3L)
                 .Adisease(true)
                 .Aneutered(true)
-                .Aname("다시넣으면?2222")
+
+                .Aname("뽀삐4")
+
                 .build();
 
 
@@ -76,5 +88,14 @@ public class AnimalRepositoryTest {
 
         log.info("더미 데이터 확인 : "+result);
     } //
+
+    @Test
+    @Transactional
+    public void selectAnimal() {
+        Optional<Animal> result = animalRepository.findByAname("뽀삐");
+        Animal animal = result.get();
+        log.info("animal : "+animal);
+    }
+
 }
 
