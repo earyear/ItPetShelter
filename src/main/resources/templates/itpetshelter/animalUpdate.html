@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>동물 상세 정보 수정</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <style>
+        /* Reset 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select {
+            appearance: none; /* 기본 스타일 제거 (크로스 브라우징) */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .uploadHidden {
+            display: none;
+        }
+
+        .uploadResult {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            outline: 0;
+        }
+
+        .modal-dialog {
+            position: relative;
+            width: auto;
+            margin: 10px;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 0.3rem;
+            outline: 0;
+            width: 100%;
+        }
+
+        .modal-header {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 1rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem;
+            border-top: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>동물 상세 정보 수정</h1>
+
+    <!-- Thymeleaf를 이용해 수정 폼 제출 -->
+    <form action="/itpetshelter/animalDetailUpdate" method="post" th:object="${animal2DTO}">
+        <input type="hidden" th:field="*{ano}"/>
+
+        <div class="form-group">
+            <label for="atype">품종:</label>
+            <input type="text" id="atype" name="atype" th:field="*{atype}" required>
+        </div>
+        <div class="form-group">
+            <label for="aname">이름:</label>
+            <input type="text" id="aname" name="aname" th:field="*{aname}" required>
+        </div>
+        <div class="form-group">
+            <label for="aage">나이:</label>
+            <input type="number" id="aage" name="aage" th:field="*{aage}" required>
+        </div>
+        <div class="form-group">
+            <label for="agender">성별:</label>
+            <select id="agender" name="agender" th:field="*{agender}" required>
+                <option th:value="true" th:text="'수컷'"></option>
+                <option th:value="false" th:text="'암컷'"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="adisease">질병 유무:</label>
+            <select id="adisease" name="adisease" th:field="*{adisease}" required>
+                <option th:value="true" th:text="'있음'"></option>
+                <option th:value="false" th:text="'없음'"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="aneutered">중성화 여부:</label>
+            <select id="aneutered" name="aneutered" th:field="*{aneutered}" required>
+                <option th:value="true" th:text="'중성화됨'"></option>
+                <option th:value="false" th:text="'중성화 안 됨'"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="alocate">보호소 위치:</label>
+            <input type="text" id="alocate" name="alocate" th:field="*{alocate}" required>
+        </div>
+        <div class="form-group">
+            <label for="alocatename">보호소 이름:</label>
+            <input type="text" id="alocatename" name="alocatename" th:field="*{alocatename}" required>
+        </div>
+        <div class="form-group">
+            <label for="acontent">동물 설명:</label>
+            <textarea id="acontent" name="acontent" rows="5" th:field="*{acontent}" required></textarea>
+        </div>
+
+        <button type="submit">수정 완료</button>
+    </form>
+</div>
+
+<!-- axios 라이브러리 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>

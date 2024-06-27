@@ -8,9 +8,11 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+
 
 @SpringBootTest
 @Log4j2
@@ -32,17 +34,21 @@ public class AnimalRepositoryTest {
     public void testInsert() {
         //실제 디비 각자 데이터에 따라서 다름.
         // 현재 bno = 900
+
         Long tno = 4L;
 
         Type type = Type.builder()
                 .type("야옹이")
+
                 .build();
 
         type = typeRepository.save(type);
 
         Shelter shelter = Shelter.builder()
+
                 .slocate("test4")
                 .sname("test4")
+
                 .build();
 
 
@@ -59,13 +65,18 @@ public class AnimalRepositoryTest {
 
 
         Animal animal = Animal.builder()
+
+                .Agender(true)
+                .Acontent("test")
                 .type(type)
                 .shelter(shelter)
                 .manager(manager)
                 .Aage(3L)
                 .Adisease(true)
                 .Aneutered(true)
+
                 .Aname("뽀삐4")
+
                 .build();
 
 
@@ -77,6 +88,7 @@ public class AnimalRepositoryTest {
 
         log.info("더미 데이터 확인 : "+result);
     } //
+
     @Test
     @Transactional
     public void selectAnimal() {
@@ -84,5 +96,6 @@ public class AnimalRepositoryTest {
         Animal animal = result.get();
         log.info("animal : "+animal);
     }
+
 }
 

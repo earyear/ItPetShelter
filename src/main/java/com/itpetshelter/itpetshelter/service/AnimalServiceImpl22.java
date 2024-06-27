@@ -25,7 +25,7 @@ public class AnimalServiceImpl22 implements AnimalService22 {
     private final TypeRepository typeRepository;
 //    private final ShelterRepository22 shelterRepository;
     @Autowired
-    private final ShelterRepository shelterRepository;
+    private ShelterRepository shelterRepository;
 
     @Autowired
     public AnimalServiceImpl22(TypeRepository typeRepository, ShelterRepository shelterRepository) {
@@ -136,6 +136,49 @@ public class AnimalServiceImpl22 implements AnimalService22 {
                 .map(this::entityToDTO)
                 .collect(Collectors.toList());
     }
+
+
+
+    @Override
+    public void delete(Long ano) {
+        animalRepository.deleteById(ano);
+    }
+
+    @Override
+    public void update(Animal2DTO animal2DTO) {
+        // DTO를 Entity로 변환
+        Animal animal = dtoToEntity(animal2DTO);
+
+        // AnimalRepository를 통해 저장된 Entity를 업데이트
+        animalRepository.save(animal);
+    }
+
+//    @Override
+//    @Transactional
+//    public void updateAnimalAndRelatedEntities(Long ano, Long tno, Long sno) {
+//        Optional<Animal> animalOptional = animalRepository.findById(ano);
+//        if (animalOptional.isPresent()) {
+//            Animal animal = animalOptional.get();
+//
+//            // Type 엔티티 수정
+//            if (tno != null) {
+//                // tno에 해당하는 Type 엔티티를 가져오는 작업이 필요할 수 있음
+//                // 예: Type type = typeRepository.findById(tno).orElseThrow(() -> new RuntimeException("Type not found with id: " + tno));
+//                // animal.setType(type);
+//            }
+//
+//            // Shelter 엔티티 수정
+//            if (sno != null) {
+//                // sno에 해당하는 Shelter 엔티티를 가져오는 작업이 필요할 수 있음
+//                // 예: Shelter shelter = shelterRepository.findById(sno).orElseThrow(() -> new RuntimeException("Shelter not found with id: " + sno));
+//                // animal.setShelter(shelter);
+//            }
+//
+//            animalRepository.save(animal);
+//        } else {
+//            throw new RuntimeException("Animal not found with id: " + ano);
+//        }
+//    }
 
 }
 
