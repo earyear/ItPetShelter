@@ -21,10 +21,13 @@ public class Animal {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long Ano;
 
+    // 연관 관계 설정 메서드 추가
+    @Setter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Tno")
     private Type type;
 
+    @Setter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Sno")
     private Shelter shelter;
@@ -71,6 +74,4 @@ public class Animal {
         imageSet.forEach(Image -> Image.changeAnimal(null));
         this.imageSet.clear();
     }
-
-
 }

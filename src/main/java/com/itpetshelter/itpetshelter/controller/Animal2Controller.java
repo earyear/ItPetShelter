@@ -1,6 +1,7 @@
 package com.itpetshelter.itpetshelter.controller;
 
 import com.itpetshelter.itpetshelter.dto.Animal2DTO;
+import com.itpetshelter.itpetshelter.repository.AnimalRepository;
 import com.itpetshelter.itpetshelter.service.AnimalService22;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 import java.util.List;
 
 @Controller
@@ -24,6 +24,9 @@ import java.util.List;
 public class Animal2Controller {
     @Autowired
     private AnimalService22 animalService;
+
+    @Autowired
+    AnimalRepository animalRepository;
 
     @GetMapping("/animalList22")
     public String getAllAnimals(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
@@ -72,29 +75,21 @@ public String deleteAnimal(@RequestParam Long ano) {
     return "redirect:/itpetshelter/animalList22";
 }
 
-    @GetMapping("/animalUpdate")
-    public String showUpdateForm(@RequestParam("ano") Long ano, Model model) {
-        Animal2DTO animalDTO = animalService.read(ano);
-        model.addAttribute("animal2DTO", animalDTO);
-        return "itpetshelter/animalUpdate"; // animalUpdate.html 템플릿으로 이동
-    }
-
     @PostMapping("/animalDetailUpdate")
     public String update(@Valid Animal2DTO animalDTO, BindingResult bindingResult, Model model) {
-
-        // 유효성 체크
         if (bindingResult.hasErrors()) {
             log.info("오류 발생: " + bindingResult.getAllErrors());
             model.addAttribute("animal2DTO", animalDTO);
             return "itpetshelter/animalUpdate";
         }
-
-        // 동물 정보 업데이트
         animalService.update(animalDTO);
-
-        // 수정 완료 후 동물 상세 페이지로 리다이렉트
         return "redirect:/itpetshelter/animalDetail?ano=" + animalDTO.getAno();
     }
 
-
+    @GetMapping("/animalUpdate")
+    public String showUpdateForm(@RequestParam("ano") Long ano, Model model) {
+        Animal2DTO animalDTO = animalService.read(ano);
+        model.addAttribute("animal2DTO", animalDTO);
+        return "itpetshelter/animalUpdate";
+    }
 }
