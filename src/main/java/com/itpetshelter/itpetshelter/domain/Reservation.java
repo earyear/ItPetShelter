@@ -3,10 +3,12 @@ package com.itpetshelter.itpetshelter.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -16,7 +18,7 @@ public class Reservation extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int Rno;
+    private Long Rno;
 
     @ManyToOne
     @JoinColumn(name = "Mno")
@@ -34,10 +36,7 @@ public class Reservation extends BaseEntity {
     @JoinColumn(name = "Sno")
     private Shelter shelter;
 
-    private LocalDateTime RDate;
-    private LocalDateTime RTime;
-
-    private Boolean Rcheck;
+    private LocalDate Rdate;
+    private String Rtime;
 
 }
-

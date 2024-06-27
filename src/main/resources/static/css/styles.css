@@ -10935,5 +10935,56 @@ header.masthead .post-heading .meta a {
   .lo_list button:hover {
     background-color: #e0e0e0;
   }
-
+  .h2 {
+    text-align: center;
+    color: #333;
+  }
+  .form {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+  }
+  .input[type="text"], input[type="email"], textarea, select {
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .textarea {
+    height: 120px;
+  }
+  .input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+  }
+  .input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  .select_date{
+    width: 100%;
+  }
+  .container-success{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }

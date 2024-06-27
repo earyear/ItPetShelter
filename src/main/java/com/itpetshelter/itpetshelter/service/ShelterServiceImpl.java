@@ -1,15 +1,11 @@
 package com.itpetshelter.itpetshelter.service;
 
-import com.itpetshelter.itpetshelter.domain.Animal;
 import com.itpetshelter.itpetshelter.domain.Shelter;
 import com.itpetshelter.itpetshelter.domain.Volunteer;
-import com.itpetshelter.itpetshelter.dto.AnimalDTO;
-import com.itpetshelter.itpetshelter.dto.BoardDTO;
 import com.itpetshelter.itpetshelter.dto.ShelterDTO;
 import com.itpetshelter.itpetshelter.dto.VolunteerDTO;
 import com.itpetshelter.itpetshelter.repository.ShelterRepository;
 import com.itpetshelter.itpetshelter.repository.VolunteerRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +31,7 @@ public class ShelterServiceImpl implements ShelterService{
         ShelterDTO shelterDTO = ShelterDTO.builder()
                 .Slocate(shelter.getSlocate())
                 .Sno(shelter.getSno())
-                .Mno(shelter.getManager().getMno())
+//                .Mno(shelter.getManager().getMno())
                 .Sname(shelter.getSname())
                 .build();
 
@@ -58,7 +54,7 @@ public class ShelterServiceImpl implements ShelterService{
         VolunteerDTO volunteerDTO = VolunteerDTO.builder()
                 .Vno(volunteer.getVno())
                 .Sno(volunteer.getShelter().getSno())
-                .Mno(volunteer.getManager().getMno())
+//                .Mno(volunteer.getManager().getMno())
                 .Cid(volunteer.getConsumer().getCid())
                 .VDate(volunteer.getVDate())
                 .VTime(volunteer.getVTime())

@@ -61,14 +61,17 @@
 
 <div layout:fragment="content" style="width:100%;height:100%;padding:3%;">
 <h2>방문 입양 문의</h2>
-    <form th:action="@{itpetshelter/reservations}" th:object="${reservation}" method="post">
+    <form action="/itpetshelter/reservation" method="post">
         <div class="select_date">
+<!--            <input type="hidden" id="ano" name="Ano" value="1"/>-->
+<!--            <input type="hidden" id="sno" name="Sno" value="1"/>-->
+
         <label for="rdate">예약 날짜:</label>
-        <input type="date" id="rdate"/>
+        <input type="date" id="rdate" name="Rdate2"/>
         <br/>
 
         <label for="rtime">예약 시간:</label>
-        <select id="rtime" >
+        <select id="rtime" name="Rtime">
             <option value="10:00">10:00</option>
             <option value="11:00">11:00</option>
             <option value="12:00">12:00</option>
@@ -79,20 +82,36 @@
             <option value="17:00">17:00</option>
         </select>
         </div>
-            <label for="animal">동물:</label>
-        <select id="animal" th:field="*{animal}">
-            <option th:each="animal : ${animals}" th:value="${animal.ano}" th:text="${animal.aname}">아이 이름</option>
+            <label for="animal">아이 이름 :</label>
+        <select id="animal" name="Ano">
+<!--            <option th:each="animal : ${animals}" th:value="${animal.ano}" th:text="${animal.aname}" name="Ano">아이 이름</option>-->
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
         </select>
         <br/>
 
-        <label for="shelter">보호소:</label>
-        <select id="shelter" th:field="*{shelter}">
-            <option th:each="shelter : ${shelters}" th:value="${shelter.sno}" th:text="${shelter.sname}">보호소 위치</option>
+        <label for="shelter">보호소 :</label>
+        <select id="shelter" name="Sno">
+<!--            <option th:each="shelter : ${shelters}" th:value="${shelter.sno}" th:text="${shelter.sname}" name="Sno">보호소 위치</option>-->
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
         </select>
         <br/>
 
         <input type="submit" value="예약 생성" style="width: 50%"/>
     </form>
 </div>
+<script layout:fragment="javascript" th:inline="javascript">
+    const Sno = document.querySelector("#shelter")
+    const Ano = document.querySelector("#animal")
+    const rtime = document.querySelector("#rtime")
+    const rdate = document.querySelector("#rdate")
+    console.log("Sno : " + Sno + "Ano : " + Ano , "rtime : " + rtime + "rdate : " + rdate)
+
+
+</script>
+
 </body>
 </html>

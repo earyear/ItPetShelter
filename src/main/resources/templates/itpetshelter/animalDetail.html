@@ -125,6 +125,14 @@
         <div class="reservation2">
             <a th:href ="@{/itpetshelter/reservation(ano=${animal2DTO.ano})}">예약하기</a>
         </div>
+
+        <a th:href="@{/itpetshelter/animalUpdate(ano=${animal2DTO.ano})}">수정하기</a>
+
+        <form th:action="@{/itpetshelter/animalDetailDelete}" method="post">
+            <input type="hidden" name="ano" th:value="${animal2DTO.ano}" />
+            <button type="submit" class="delete-button">Delete</button>
+        </form>
+
     </div>
 </div>
 </body>
